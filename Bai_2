@@ -1,0 +1,21 @@
+public class Bai_2_Valid_Parenthese {
+    public boolean isValid(String s) {
+        int openCount = 0; // Biến đếm số lượng ngoặc đơn mở
+        int closeCount = 0; // Biến đếm số lượng ngoặc đơn đóng
+
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            if (currentChar == '(') {
+                openCount++;
+            } else if (currentChar == ')') {
+                closeCount++;
+            }
+
+            if (currentChar == ']' && currentChar == '}' && openCount == closeCount) {
+                return false;
+            }
+        }
+
+        return openCount == closeCount; // Kiểm tra xem số ngoặc mở và ngoặc đóng có bằng nhau hay không
+    }
+}
